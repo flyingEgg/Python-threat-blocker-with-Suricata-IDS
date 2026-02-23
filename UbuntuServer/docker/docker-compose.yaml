@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+  bwapp-db:
+    image: keinos/sqlite3:latest
+    container_name: bwapp-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: bwapp_root
+      MYSQL_DATABASE: bwapp
+      MYSQL_USER: bwapp
+      MYSQL_PASSWORD: bwapppass
+    volumes:
+      - bwapp_db_data:/var/lib/sqlite
+    networks:
+      - labnet
+
+  bwapp:
+    image: raesene/bwapp:latest
+    container_name: bwapp
+    restart: unless-stopped
+    depends_on:
+      - bwapp-db
+    ports:
+      - "8081:80"    # http://<target-ip>:8081
+    environment:
+      DB_SERVER: bwapp-db
+      DB_USER: bwapp
+      DB_PASSWD: bwapppass
+      DB_NAME: bwapp
+    networks:
+      - labnet
+    volumes:
+      - bwapp_data:/var/www/html
+
+volumes:
+  bwapp_db_data:
+  bwapp_data:
+
+networks:
+  labnet:
+    driver: bridge

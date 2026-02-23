@@ -1,0 +1,76 @@
+attacks_definitions:
+  portscan:
+    signatures:
+      - "nmap"
+      - "port scan"
+      - "reconnaissance"
+      - "-sS"
+      - "-sX"
+      - "-sA"
+      - "-sU"
+      - "-sT"
+
+    attack_type: "portscan"
+    time_window: 180
+    threshold: 15
+    severity: "MEDIO"
+
+  ssh_bruteforce:
+    signatures:
+      - "ssh failed"
+      - "authentication. *failure"
+      - "brute force ssh"
+    attack_type: "bruteforce"
+    time_window: 480
+    threshold: 8
+    severity: "ALTO"
+
+  sqli:
+    signatures:
+      - "sql injection"
+      - "sqli"
+      - "SQLi"
+      - "injection"
+      - "mysql"
+      - "union select"
+      - "union"
+      - "UNION SELECT"
+      - "UNION"
+      - "SLEEP"
+      - "time based"
+      - "sql error"
+      - "sqlmap"
+    attack_type: "sqlinjection"
+    time_window: 120
+    threshold: 3
+    severity: "ALTO"
+
+  mitm:
+    signatures:
+      - "ARP Spoofing"
+      - "ARP Poisoning"
+      - "MITM Attempt"
+      - "MITM"
+      - "cleartext"
+      - "password"
+      - "credentials"
+      - "ettercap"
+      - "man in the middle"
+      - "mitm"
+    attack_type: "mitm"
+    time_window: 30
+    threshold: 1
+    severity: "ALTO"
+
+  csrf:
+    signatures:
+      - "CSRF"
+      - "CSRF Attempt"
+      - "token"
+      - "Token"
+      - "CSRFTOKEN"
+      - "GET"
+    attack_type: "csrf"
+    time_window: 200
+    threshold: 2
+    severity: "ALTO"
