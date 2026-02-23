@@ -10,7 +10,7 @@ di pattern comportamentali sospetti da parte di altri indirizzi IP con eventuale
 - **Lettura periodica log**: Vengono lette le signature nei log con frequenza secondo il refresh rate impostato
 - al lancio.
 - **Identificazione minaccia**: Basandosi sui dati ricavati dalle signature, viene consultato il file di configurazione
-- `attacks_config.yaml` per determinare il tipo di attacco e la risposta adeguata.
+`attacks_config.yaml` per determinare il tipo di attacco e la risposta adeguata.
 - **Autenticazione API e blocco**: Via chiavi API salvate come variabili d'ambiente, si creano regole di firewall sulla
 - base di quanto identificato.
 
@@ -22,7 +22,7 @@ di pattern comportamentali sospetti da parte di altri indirizzi IP con eventuale
 
 1. **Clonare il repository**:
     ```bash
-    git clone https://github.com/flyingEgg/Java-Pacman-MVC.git
+    git clone https://github.com/flyingEgg/Python-threat-blocker-with-Suricata-IDS.git
     ```
 2. **Navigare nella directory del progetto**:
     ```bash
